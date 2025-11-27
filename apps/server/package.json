@@ -71,6 +71,12 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "eslint --fix --config eslint.config.mjs"
+    ]
+  },
   "volta": {
     "extends": "../../package.json"
   }

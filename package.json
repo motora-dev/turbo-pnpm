@@ -3,6 +3,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "prepare": "husky || true",
     "clean": "turbo run clean && rimraf .turbo node_modules",
     "build": "turbo run build",
     "start": "turbo run start",
@@ -20,6 +21,8 @@
     "@monorepo/eslint-config": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
     "prettier": "catalog:",
     "rimraf": "catalog:",
     "turbo": "catalog:"

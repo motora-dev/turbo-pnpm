@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.spec.ts", "test/**/*.spec.ts", "test/**/*.e2e-spec.ts"],
+  "exclude": [".turbo", "coverage", "dist", "node_modules"],
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./.tsbuildinfo/spec.tsbuildinfo",
+    "types": ["node", "jest"]
+  }
+}

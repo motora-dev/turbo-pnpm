@@ -1,0 +1,77 @@
+{
+  "name": "@monorepo/server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf .tsbuildinfo .turbo coverage dist node_modules",
+    "build": "nest build --config tsconfig.build.json",
+    "start": "nest start --config tsconfig.debug.json",
+    "start:prd": "node dist/main",
+    "check-all": "pnpm lint && pnpm format && pnpm tsc && pnpm test",
+    "format": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format:fix": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\" --config eslint.config.mjs",
+    "lint:fix": "pnpm lint --fix",
+    "tsc": "pnpm tsc:build && pnpm tsc:test",
+    "tsc:build": "tsc --noEmit --project tsconfig.build.json",
+    "tsc:test": "tsc --noEmit --project tsconfig.spec.json",
+    "test": "pnpm test:unit && pnpm test:e2e",
+    "test:unit": "jest",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:coverage": "pnpm test:coverage:unit",
+    "test:coverage:unit": "jest --coverage"
+  },
+  "dependencies": {
+    "@nestjs/common": "catalog:",
+    "@nestjs/core": "catalog:",
+    "@nestjs/platform-express": "catalog:",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@monorepo/eslint-config": "workspace:*",
+    "@monorepo/typescript-config": "workspace:*",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "catalog:",
+    "@types/express": "^5.0.0",
+    "@types/jest": "catalog:",
+    "@types/node": "^22.10.7",
+    "@types/supertest": "^6.0.2",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^16.0.0",
+    "jest": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.20.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "cache": true,
+      "outputs": ["dist/**", "tsconfig.build.tsbuildinfo"]
+    },
+    "lint": {
+      "cache": true,
+      "env": ["PORT"]
+    },
+    "lint:fix": {
+      "cache": false,
+      "env": ["PORT"]
+    },
+    "tsc": {
+      "cache": true,
+      "outputs": ["./.tsbuildinfo/build.tsbuildinfo", "./.tsbuildinfo/spec.tsbuildinfo"]
+    }
+  }
+}

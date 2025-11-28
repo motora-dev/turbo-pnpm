@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.spec.ts", "test/**/*.spec.ts", "test/**/*.e2e-spec.ts"],
+  "include": ["src/**/*.ts", "src/**/*.test.ts", "test/**/*.ts"],
   "exclude": [".turbo", "coverage", "dist", "node_modules"],
   "compilerOptions": {
     "composite": true,
